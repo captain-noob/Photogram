@@ -25,11 +25,16 @@ it helps to upload images , sent likes , sent comments .... etc....
 ## Working
 
 > start mysql (Xampp)
+.
 > open cmd 
 > `cd photogram`
+,
 > `pip install -r requirement.txt`
+,
 > `python manage.py makemigrations`
+,
 > `python manage.py migrate`
+,
 > `python manage.py runserver`
 > 
 
