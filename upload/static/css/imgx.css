@@ -1,0 +1,116 @@
+.imgsx{
+    width: 250px;
+    height: 250px;
+    margin: 20px;
+    filter: grayscale(100%);
+}
+.imgsx:hover{
+    filter:grayscale(0);
+    transition:  1s;
+    transform: scale(1.1);
+}
+.hrex{
+
+    height: 1px;
+    color: rgb(119, 109, 109);
+    background-color: rgb(124, 119, 119);
+}
+.divcenx{
+    object-position: center;
+    object-fit: inherit;
+}
+.bolx{
+    font-weight: bold;
+}
+.imsx{
+    padding: 5px;
+    width: 22px;
+    height: 22px;
+}
+.spnx{
+    font-size: 12px;
+    margin: 2px;
+}
+
+/*#jhkjhkjh*/
+.modalzx{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.671);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    padding-top: 10%;
+}
+.wihix{
+    margin-left: 22%;
+    width: 50%;
+    height: 68%;
+
+    clear: both;
+}
+.immx{
+    height: 100%;
+    width: 60%;
+    float: left;
+}
+.imx{
+    height: 100%;
+    width: 100%;
+}
+.fl-lfx{
+    height: 100%;
+    width: 40%;
+    padding: 10px;
+    float: right;
+    background: white;
+}
+.uspx{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bolder;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    margin: 0;
+}
+.titlesx{
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-left: 30px;
+
+}
+.commandx{
+    height:40%;
+    width:100%;
+    overflow:scroll;
+    overflow-x:hidden;
+    overflow-y:scroll;
+}
+.cmdsx{
+    font-size: 13px;
+    font-weight:bold;
+}
+.parax{
+}
+.spnux{
+    font-weight: bolder;
+}
+.hrzx{
+    padding: 2px;
+    margin: 2px;
+}
+.lcx{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 200;
+    padding: 5px;
+}
+.btnzx{
+    padding-top: 20px;
+}
+

@@ -1,0 +1,183 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<div class="container">
+    <form class="form-horizontal" role="form" method="post" action="{% url 'editpro' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+    <h1>Edit Profile</h1>
+  	<hr>
+	<div class="row">
+      <!-- left column -->
+      <div class="col-md-3">
+        <div class="text-center">
+          <img src="{{ user.propic }}" class="avatar img-circle" alt="avatar" style="width: 100px;height: 100px;background-size: cover;" id="output_image">
+          <h6>Upload a different photo...</h6>
+          <input type="file" class="form-control" onchange="return preview_imagez(event)" id="a" name="image">
+        </div>
+      </div>
+      <!-- edit form column -->
+      <div class="col-md-9 personal-info">
+        <div class="alert alert-info alert-dismissable">
+          <i class="fa fa-coffee"></i>
+            {{ msg1 }}
+        </div>
+        <h3>Personal info</h3>
+
+
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Name:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="{{ user.name }}" onkeypress="return namechk(event)"id="name" name="name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Username:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="{{ user.username }}" onkeypress="return usernamechk(event)"id="user" name="username">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Mobile number:</label>
+            <div class="col-lg-8">
+              <input class="form-control" id="number" type="text" value="{{ user.phonenumber }}" name="number" onkeypress="return unmberchk(event)" onchange="unmberchk1()">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Email:</label>
+            <div class="col-lg-8">
+              <input class="form-control" id="email" type="text" value="{{ user.email }}" onchange="chkemail()" name="email">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-3 control-label">Date Joined</label>
+            <div class="col-md-8">
+              <input class="form-control" type="text" value="{{ user.date }}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Password:</label>
+            <div class="col-md-8">
+              <input class="form-control" id="password" type="password" onchange="pass()" name="password1">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Confirm password:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="password" name="password">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+              <input type="submit" class="btn btn-primary" value="Save Changes">
+              <span></span>
+              <a href="{% url 'profile' %}">
+                  <input type="button" class="btn btn-default" value="Cancel">
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>
+<hr>
+
+        <script>
+            function usernamechk(event) {
+                var username = document.getElementById('user');
+                var usernameRegex = /^[a-zA-Z0-9]+$/;
+                if (event.key.match(usernameRegex)){
+                    return true;
+                }else {
+                    username.value +="_"
+                    return false;
+                }
+            }
+
+            function namechk(event)
+              {
+               var letters = /^[A-Za-z]+$/;
+               if(event.key.match(letters)||event.key==' ')
+                 {
+                    return true;
+                 }
+               else {
+                   alert("Dude Enter your name only");
+                   return false;
+               }
+              }
+
+        function unmberchk(event) {
+            var letters = /^[0-9]+$/;
+                var number=document.getElementById('number');
+               if(event.key.match(letters)) {
+                   return true;
+                 } else {
+                   alert("Dude Enter your Cell number ");
+                   return false;
+               }
+        }
+        function unmberchk1(){
+                var number=document.getElementById('number');
+                var nm=number.value.length;
+            if (nm>10) {
+                alert("Dude Enter your 10 digit Cell number ");
+                number.value="";
+            }
+            else if (nm<10) {
+                alert("Dude Enter your 10 digit Cell number ");
+            }else {
+                var chk =number.value[0];
+                var chknum=/[6-9]/;
+                if (chk.match(chknum)){
+                } else {
+                    alert("Dude Enter your valid Cell number ");
+                    number.value="";
+                }
+            }
+        }
+
+        function chkemail() {
+                var emailfrmt=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                var email=document.getElementById('email');
+                if(email.value.match(emailfrmt)){
+
+                }else{
+                     alert("Dude Enter your valid Email-id ");
+                     email.value="";
+                }
+
+        }
+        function pass() {
+                var pass=document.getElementById('password');
+                if (pass.value.length<8) {
+                    alert('Dude atleast 8 letters')
+                }
+
+        }
+
+submitOK = "true";
+function preview_imagez(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+            var output = document.getElementById('output_image');
+            var fileinp=a.value;
+            var ext=/(\.jpg|\.jpeg|\.png)$/i;
+            if(!ext.exec(fileinp)){
+                alert("you can upload .jpg .png .jpeg images ");
+                return false;
+            }else
+            {
+                output.src = reader.result;
+            }
+        }
+    reader.readAsDataURL(event.target.files[0]);
+
+}
+        </script>

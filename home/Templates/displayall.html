@@ -1,0 +1,108 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+{% load static %}
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/displayall.css' %}">
+<style>
+    .btnzs2:hover{
+    background: rgba(255, 0, 0, 0.712);
+    transform: scale(0.9);
+    transition: 1s;
+    box-shadow: rgba(177, 177, 177, 0.658) 1px 1px 1px 1px;
+}
+</style>
+
+
+
+<div class="container" id="con">
+{#    display#}
+    {% for foo in img %}
+        {% for foo1 in uid %}
+            {% if foo1.id == foo.cusid_id %}
+                    <div class="mstr">
+                        <div class="nametag">
+                           <a href="{% url 'userdetial' %}?username={{ foo1.username }}" class="user"><img src="{{ foo1.propic }}" class="dp">
+                            <p class="username">@{{ foo1.username }}</p></a>
+                            {% if request.session.id != foo.cusid_id %}
+                            <div  id="rep" >
+                                <a href="{% url 'photoreport' %}?id={{ foo.id }}"><button class="buttonz btnzs2" >Report</button></a>
+                            </div>
+                                {% endif %}
+                        </div>
+                        <div class="main">
+                            <div id="phli">
+                                <p class="cp">{{ foo.caption }}</p>
+                                <p class="pc">comments :</p>
+                                <div class="commend">
+
+                                    {% for comme in comment %}
+                                        {% if comme.photo_id_id == foo.id %}
+                                            {% for xx in uid %}
+                                                {% if comme.cus_id_id == xx.id %}
+                                                    <p class="zas"><span class="saz">@{{ xx.username }} :</span>{{ comme.comments }}</p>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
+
+
+
+                                </div>
+                                <div>
+                                    <form action="{% url 'comment' %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="img_id" value="{{ foo.id }}">
+                                         <input id="comment" name="comment" type="text" placeholder="submit your comments" class="fl pad" required>
+                                     <button type="submit" class="fl bt" name="submit"><img src="{% static 'logo/sent-mail.png'%}" class="icnz"></button>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div id="comm">
+                                <img src="{{ foo.image }}" class="imgs">
+                                <div class="ddd">
+                                    <a href="{% url 'like' %}?id={{ foo.id }}">
+                                        <button class="bttb lft"><img src="{% static 'logo/victory.png'%}" class="cmd"></button>
+
+                                    </a>
+                                    <p class="lft para"><span class="spn">{{ foo.likes }}</span>Likes</p>
+                                    <button class="bttb lft"><img src="{% static 'logo/message-bubbles.png'%}" class="cmd"></button>
+                                    <p class="lft para"><span class="spn">{{ foo.command }}</span>Comments</p>
+                                </div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                    </div>
+
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+
+
+{#    end#}
+{#<div style="display: none;">#}
+{#    <form action="{% url 'comment' %}">#}
+{#        <input type="text" name="" id="commentdis">#}
+{#        <input type="submit" id="submit">#}
+{#    </form>#}
+{#</div>#}
+{#</div>#}
+<script>
+    var rep=document.getElementById('rep');
+    function Report(al){
+        if(rep.style.display=="none"){
+            rep.style.transition=1;
+            rep.style.display="block";
+        }else{
+            rep.style.display="none";
+        }
+    }
+    function myfunction(this) {
+        var comment=document.getElementById('comment').value()
+        alert(comment);
+    }
+</script>

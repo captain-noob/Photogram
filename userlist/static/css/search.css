@@ -1,0 +1,108 @@
+.inputz{
+    width: 92%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+.fll{
+    width: 8%;
+    background: rgb(177, 174, 174);
+    border-radius: 5px;
+    border: none;
+}
+.inputz,.fll ,.inputz:focus,.fll:focus{
+    outline: none;
+    height: 40px;
+    padding: 0;
+    float: left;
+}
+.padz{
+    padding: 2%;
+}
+.imz{
+    width: 50%;
+    height: 90%;
+}
+/* friendlist css*/
+
+.myclaz{
+    width: 100%;
+    height: 20%;
+    margin-top: 1%;
+    background: rgb(245, 243, 243);
+    border-radius: 10px;
+    box-shadow: rgba(177, 177, 177, 0.658) 1px 1px 1px 1px;
+}
+.container{
+    padding-top: 1%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+a,a:link,a:hover,p,h4{
+    color: black;
+
+}
+.ps{
+    padding-left: 10%;
+}
+.leftcls{
+    float: left;
+    width: 70%;
+    height: 100%;
+}
+.inside{
+    width: 22%;
+    height: 100%;
+    float: left;
+}
+.imgs{
+    width: 100%;
+    height: 100%;
+    padding: 20%;
+    border-radius: 50%;
+}
+.inside1{
+    float: left;
+    width: 30%;
+    height: 100%;
+    padding-top: 6%;
+    padding-bottom: 6%;
+}
+.flz{
+    float: left;
+    padding: 4.5%;
+    margin-top: 5.5%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.sso{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-right: 2px;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+.btnzs{
+    width: 10%;
+    height: 25%;
+    border: none;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 8%;
+    margin-right:1%;
+    margin-left: 2%;
+    margin-top:  5.5%;
+}
+.btnzs:focus{
+    outline: none;
+}
+.btnzs1:hover{
+    background: rgba(0, 128, 0, 0.712);
+    transform: scale(1.1);
+    transition: 1s;
+    box-shadow: rgba(177, 177, 177, 0.658) 1px 1px 1px 1px;
+}
+.btnzs2:hover{
+    background: rgba(255, 0, 0, 0.712);
+    transform: scale(0.9);
+    transition: 1s;
+    box-shadow: rgba(177, 177, 177, 0.658) 1px 1px 1px 1px;
+}   

@@ -1,0 +1,9 @@
+django
+mccabe
+mysql-connector
+pylint
+PyMySQL
+pytz
+six
+urllib3
+wrapt

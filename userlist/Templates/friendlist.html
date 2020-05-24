@@ -1,0 +1,38 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/search.css' %}">
+
+    <div class="container">
+    <div class="myclaz">
+        <div class="leftcls">
+            <a href="{% url 'userdetial' %}?username={{ i.username }}">
+                <div class="inside">
+                    <img src="{{ i.propic }}" class="imgs">
+                </div>
+                <div class="inside1">
+                    <h4>@{{ i.username }}{% ifequal i.verified 1 %}<img src="{% static 'logo/verify.png' %}"style="width:18px;height:18px;margin-left: 5px;">{% endifequal %}</h4>
+                    <p class="ps" style="text-transform: capitalize;">{{ i.name }}</p>
+                </div>
+            </a>
+            <div>
+                <h5 class="flz"><span class="sso">{{ i.followers }}</span>Followers</h5>
+                <h5 class="flz"><span class="sso">{{ i.followings }}</span>Followings</h5>
+            </div>
+        </div>
+        {% if request.session.username != i.username %}
+            <div class="buttons">
+               <a href="{% url 'follow' %}">
+                   <button class="btnzs btnzs1">Follow</button>
+               </a>
+                <button class="btnzs btnzs2">Report</button>
+            </div>
+        {% endif %}
+    </div>
+</div>

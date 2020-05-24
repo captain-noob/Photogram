@@ -1,0 +1,22 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/search.css' %}">
+
+<div class="container" >
+    <div class="padz">
+        <form method="post" action="{% url 'userdetial' %}">
+            {% csrf_token %}
+
+            <input type="text" class="inputz" name="search">
+            <button type="submit" class="fll"><img src="{% static 'logo/iconfinder_freebies1_glyph-04_2920347.png' %}" class="imz"></button>
+        </form>
+    </div>
+</div>
+

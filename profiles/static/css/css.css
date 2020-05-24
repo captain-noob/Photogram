@@ -1,0 +1,42 @@
+.imgs{
+  width: 150px;
+  height:150px;
+  float: left;
+  margin: 50px; 
+  margin-left: 170px;
+}
+.username{
+  margin-top: 55px;
+  font-size: 25px;
+  clear: both;
+}
+.name{
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.editpro{
+  margin-top: 55px;
+  clear: both;
+}
+.fl-left{
+  float: left;
+}
+.fl-margin{
+  margin-right: 50px;
+}
+
+.fl-bold{
+  font-weight: bolder;
+}
+.fl-size{
+  font-size: 16px;
+  margin-right: 3px;
+}
+a:hover{
+  text-decoration: none;
+  color: black;
+}
+.backgroundz{
+  background:#fafafa;
+}

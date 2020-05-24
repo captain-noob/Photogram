@@ -1,0 +1,92 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+{#<link rel="stylesheet" href="css/lightbox.min.css">#}
+{#<link rel="stylesheet" href="css/lightbox.css">#}
+{#<script src="js/lightbox-plus-jquery.min.js"></script>#}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/imgx.css' %}">
+
+<div class="container">
+    <hr class="hrex">
+    <center>
+        <p class="bolx"><img class="imsx" src="{% static 'img/menu.png' %}"><span class="spnx">POSTS</span></p>
+    </center>
+    <div class="col-md-12">
+        <div class="row">
+           <center>
+               {% for imgs in img %}
+
+                    <img src="{{ imgs.image }}" class="imgsx" alt="{{ imgs.caption }}" name="{{ imgs.id }}"  onclick="d(this)" id="myImg">
+
+               {% endfor %}
+           </center>
+        </div>
+    </div>
+</div>
+<div id="myModal" class="modalzx">
+        <div class="wihix">
+            <div class="immx">
+                <img  class="imx" id="img01">
+            </div>
+            <div class="fl-lfx">
+                <p class="uspx">@{{ username }}</p>
+                <hr class="hrzx">
+                <p class="titlesx" id="caption"></p>
+                <hr class="hrzx">
+{#                <p class="cmdsx">Commands :</p>#}
+{#                <div class="commandx">#}
+{#                    <div style="height:150px;">#}
+{#                        <p class="parax"><span class="spnux">@username : </span>dhgjhsdg fjsdhjh fsdfg sjfjs</p>#}
+{##}
+{#                    </div>#}
+{#                  </div>#}
+                  <div class="btnzx">
+                        <hr class="hrzx">
+                        <p class="lcx" style="float:left;"> <span id="like"></span> Likes </p>
+                        <p class="lcx" style="float:right;"> <span id="comm"></span> Commands </p>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<script>
+    var a=document.getElementById('myModal');
+    function d(al){
+        var a=document.getElementById('myModal');
+        var b=document.getElementById('img01');
+
+        var caption=document.getElementById('caption');
+        var like=document.getElementById('like');
+        var comm=document.getElementById('comm');
+        var img=al.src;
+        var cap=al.name;
+        caption.innerText=al.alt;
+        b.src=img;
+        al.rel="modal:open";
+        a.style.display="block";
+
+        {% for imgs in img %}
+            var id="{{ imgs.id }}";
+            if (id==cap){
+                {#var capt="{{ imgs.caption }}";#}
+                {#caption.innerHTML=capt;#}
+                like.innerHTML="{{ imgs.likes }}";
+                comm.innerHTML="{{ imgs.command }}";
+            }
+        {% endfor %}
+
+    }
+a.onclick=function(){
+    a.style.display = "none";
+}
+
+</script>

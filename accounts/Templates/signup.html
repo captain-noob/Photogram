@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>PhotoGram • Signup</title>
+		<link rel="shortcut icon" href="{% static 'signup/images/icons/favicon.ico' %}" type="image/x-icon">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- LINEARICONS -->
+		<link rel="stylesheet" href="{% static 'signup/fonts/linearicons/style.css' %}">
+		
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="{% static 'signup/css/style.css' %}">
+
+        <script>
+            function usernamechk(event) {
+                var username = document.getElementById('user');
+                var usernameRegex = /^[a-zA-Z0-9]+$/;
+                if (event.key.match(usernameRegex)){
+                    return true;
+                }else {
+                    username.value +="_"
+                    return false;
+                }
+            }
+
+            function namechk(event)
+              {
+               var letters = /^[A-Za-z]+$/;
+               if(event.key.match(letters)||event.key==' ')
+                 {
+                    return true;
+                 }
+               else {
+                   alert("Dude Enter your name only");
+                   return false;
+               }
+              }
+
+        function unmberchk(event) {
+            var letters = /^[0-9]+$/;
+                var number=document.getElementById('number');
+               if(event.key.match(letters)) {
+                   return true;
+                 } else {
+                   alert("Dude Enter your Cell number ");
+                   return false;
+               }
+        }
+        function unmberchk1(){
+                var number=document.getElementById('number');
+                var nm=number.value.length;
+            if (nm>10) {
+                alert("Dude Enter your 10 digit Cell number ");
+                number.value="";
+            }
+            else if (nm<10) {
+                alert("Dude Enter your 10 digit Cell number ");
+            }else {
+                var chk =number.value[0];
+                var chknum=/[6-9]/;
+                if (chk.match(chknum)){
+                } else {
+                    alert("Dude Enter your valid Cell number ");
+                    number.value="";
+                }
+            }
+        }
+
+        function chkemail() {
+                var emailfrmt=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                var email=document.getElementById('email');
+                if(email.value.match(emailfrmt)){
+
+                }else{
+                     alert("Dude Enter your valid Email-id ");
+                     email.value="";
+                }
+
+        }
+        function pass() {
+                var pass=document.getElementById('password');
+                if (pass.value.length<8) {
+                    alert('Dude atleast 8 letters')
+                }
+
+        }
+
+        </script>
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+			<div class="inner">
+				<form action="{% url 'signup' %}" method="POST">
+                    <div style="margin-top:10px;text-align: center;background: chocolate;">
+                        <p  style="text-decoration: none;color: white;">
+                           {{ msg }}
+                        </p>
+                    </div>
+                    {% csrf_token %}
+					<h3>PhotoGram</h3>
+					<div class="form-holder">
+						<span class="lnr lnr-user"></span>
+						<input type="text" class="form-control" placeholder="Username" id="user" name="user" onkeypress="return usernamechk(event)" required>
+					</div>
+                    <div class="form-holder">
+						<span class="lnr lnr-users"></span>
+						<input type="text" class="form-control" placeholder="Full Name" name="name" id="name" onkeypress="return namechk(event)" required>
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-phone-handset"></span>
+						<input type="text" class="form-control" placeholder="Phone Number" name="phone" id="number" onkeypress="return unmberchk(event)" onchange="unmberchk1()" required>
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-envelope"></span>
+						<input type="email" class="form-control" placeholder="Mail" name="email" id="email" onchange="chkemail()" required>
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-lock"></span>
+						<input type="password" class="form-control" placeholder="Password" name="password" id="password" onchange="pass()" required>
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-lock"></span>
+						<input type="password" class="form-control" placeholder="Confirm Password" name="password1" id="password1"  required>
+					</div>
+					<button>
+						<span>Register</span>
+					</button>
+                    <div style="margin-top:10px;text-align: center;">
+                        <a href="{% url 'login' %}" style="text-decoration: none;">
+                           Alredy a User ... Login
+                        </a>
+                    </div>
+
+				</form>
+			</div>
+			
+		</div>
+		
+		<script src="{% static 'signup/js/jquery-3.3.1.min.js' %}"></script>
+		<script src="{% static 'js/main.js' %}"></script>
+	</body>
+</html>

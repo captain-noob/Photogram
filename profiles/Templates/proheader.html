@@ -1,0 +1,50 @@
+{% load static %}
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/css.css' %}">
+<style>
+    #namez {
+  text-transform: capitalize;
+}
+</style>
+
+<div class="container-fluid backgroundz" onloadeddata="onld()">
+    <div class="col-md-12 ">
+        <div class="col-md-4">
+            <img src="{{ dp }}" class="imgs img-circle">
+        </div>
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="username">@{{ username }}{% ifequal verified 1 %}<img src="{% static 'logo/verify.png' %}"style="width:18px;height:18px;margin-left: 5px;">{% endifequal %}</p>
+                    <div class="row">
+                        <p class="fl-left fl-margin"><span class="fl-bold fl-size">{{ post }}</span>  <span class=" blockquote">Post</span></p>
+                        <p class="fl-left fl-margin"><span class="fl-bold fl-size">{{ followers }}</span> <a href="" class="h5  blockquote">Followers</a></p>
+                        <p class="fl-left fl-margin"><span class="fl-bold fl-size">{{ followings }}</span> <a href="" class=" h5  blockquote">Followings</a></p>
+                    </div >
+                    <div class="col">
+                        <p class="name" id="namez">{{ name }}</p>
+                        <p>{{ email }}</p>
+                        <p>{{ mob }}</p>
+                    </div>
+                </div>
+                <a class="col-md-2 fl-left">
+                    <a href="{% url 'editpro' %}">
+                        <button class="editpro btn" >Edit Profile</button>
+                    </a>
+                    {% ifequal verified 0 %}
+                        <a href="{% url 'verify' %}?username={{ username }}">
+                        <button class="editpro btn">Request Verification</button></a>
+                    {% endifequal %}
+                </div>
+            </div>
+        </div>
+    </div>
+        
+</div>

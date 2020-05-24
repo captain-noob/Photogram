@@ -1,0 +1,174 @@
+body{
+    background: #fafafa;
+}
+#con{
+    padding-left: 12%;
+    border: 1px solid rgba(255, 255, 255, 0.63);
+
+}
+.mstr{
+    margin-top: 4%;
+    width: 85%;
+    height: 64%;
+    background: rgb(196, 191, 191);
+}
+.nametag{
+    width: 100%;
+    height: 12%;
+    background: rgb(216, 213, 206);
+}
+.dp{
+    height: 70%;
+    width: 5%;
+    border-radius: 70%;
+    margin: 1%;
+    float: left;
+}
+.user:hover,.user:visited,.user,.user:active,.user:link{
+    text-decoration: none;
+    color: black;
+}
+.username{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    padding-top: 1.6%;
+    float: left;
+}
+.buttons{
+    background: none;
+    border: none;
+    float: right;
+    padding: 1%;
+}
+.buttons:focus,.buttonz:focus{
+    outline:none;
+}
+.buttons:focus + .xxx{
+    display: block;
+}
+.main{
+    
+    width: 100%;
+    height: 88%;
+}
+.icn{
+    width: 100%;
+    height: 58%;
+}
+#phli{
+    
+    width: 35%;
+    height: 100%;
+    margin-right:0px; 
+    float: right;
+    clear: both;
+}
+#comm{
+    
+    width: 65%;
+    height: 100%;
+    
+    float: left;
+}
+.imgs{
+    width: 100%;
+    height: 87%;
+}
+.ddd{
+    width:100%;
+    height:13%;
+    
+}
+.cmd{
+    width: 70%;
+    height: 70%;
+    float: left;
+}
+.bttb{
+    width:10% ;
+    height: 100%;
+    margin-left: 18%;
+    margin-right: 6px;
+    background: none;
+    border: none;
+
+}
+.bttb:focus,.bt:focus{
+    outline: none;
+}
+.lft{
+    float: left;
+}
+.para{
+    font-size: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-top:3%; 
+}
+.spn{
+    font-weight: bolder;
+    font-size: 14px;
+    padding: 2px;
+}
+.buttonz{
+    background: rgb(202, 200, 200);
+    border: #c22e2e;
+    border-radius: 5px;
+    float: right;
+    font-size: 14px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 20%;
+    height: 70%;
+    margin: 1%;
+}
+.buttonz:hover{
+    transition: 1s;
+    background: rgb(218, 216, 216);
+}
+.commend{
+    height:58%;
+    width:96%;
+    margin: 2%;
+    overflow: hidden;
+    background: rgb(209, 207, 207);   
+}
+.commend:hover{
+    overflow:scroll;
+    overflow-x:hidden;
+    overflow-y:scroll;
+}
+.cp{
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 23px;
+    padding-top: 10px;
+}
+.pc{
+    font-weight: bolder;
+    padding-left: 8px;
+}
+.zas{
+    padding: 10px;
+}
+.saz{
+    font-weight: bolder;
+    padding-right: 5px;
+}
+.fl{
+    float: left;
+    margin-top: 13px;
+    height: 40px;
+}
+.pad{
+    margin-left: 8px;
+    width: 83%;
+}
+.icnz{
+    width: 20px;
+    height: 20px;
+}
+.bt{
+    background: rgba(197, 196, 193, 0.712);
+    border: none;
+    width:35px;
+}
